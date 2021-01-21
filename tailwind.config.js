@@ -19,7 +19,7 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
 
-      black: { ...colors.black, 100:"#242F31" },
+      black: { ...colors.black, 0:"#000000", 100:"#242F31" },
       white: colors.white,
       gray: colors.coolGray,
       red: { ...colors.red, 400:"#F9AC80" },
@@ -53,7 +53,6 @@ module.exports = {
       16: "4rem",
       20: "5rem",
       24: "6rem",
-      25: "6.25rem",
       28: "7rem",
       32: "8rem",
       36: "9rem",
