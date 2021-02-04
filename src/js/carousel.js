@@ -64,7 +64,7 @@ function slide(wrapper, items) {
 
   function dragEnd() {
     posFinal = items.offsetLeft;
-
+    
     if (posFinal - posInitial < -threshold) {
       shiftSlide(1, "drag");
     } else if (posFinal - posInitial > threshold) {
@@ -79,7 +79,7 @@ function slide(wrapper, items) {
 
   function shiftSlide(direction, action) {
     addClass(items, "transition-all duration-200");
-
+    
     if (allowShift) {
       if (!action) posInitial = items.offsetLeft;
 
@@ -91,6 +91,7 @@ function slide(wrapper, items) {
         index--;
       }
     }
+    
     allowShift = false;
   }
 
