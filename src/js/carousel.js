@@ -1,8 +1,8 @@
-import { addClass, removeClass } from "./utils-class.js";
+import { addClass, removeClass } from "./utils-class";
 
-const carouselId = document.getElementById("carousel");
-const carouselItems = carouselId.getElementsByClassName("flex")[0];
-const carouselContainer = carouselId.getElementsByClassName("container")[0];
+const carouselId = document?.getElementById("carousel");
+const carouselItems = carouselId?.getElementsByClassName("flex")[0];
+const carouselContainer = carouselId?.getElementsByClassName("container")[0];
 
 function carouselCalculateOffset() {
   const carouselOffset = carouselContainer.getBoundingClientRect().left;
@@ -10,6 +10,7 @@ function carouselCalculateOffset() {
   carouselItems.style.paddingLeft = `${carouselOffset - 16}px`;
   carouselItems.style.paddingRight = `${carouselOffset - 16}px`;
 }
+
 function slide(wrapper, items) {
   let posX1 = 0,
     posX2 = 0,
@@ -26,10 +27,13 @@ function slide(wrapper, items) {
   wrapper.classList.add("loaded");
 
   items.onmousedown = dragStart;
-
+  
   items.addEventListener("touchstart", dragStart);
   items.addEventListener("touchend", dragEnd);
   items.addEventListener("touchmove", dragAction);
+  items.addEventListener("click", function (event) {
+    !allowShift && event.preventDefault();
+  });
 
   items.addEventListener("transitionend", checkIndex);
 
@@ -38,7 +42,7 @@ function slide(wrapper, items) {
     e.preventDefault();
     posInitial = items.offsetLeft;
 
-    if (e.type == "touchStart") {
+    if (e.type == "touchstart") {
       console.log(e.touches);
       posX1 = e.touches[0].clientX;
     } else {
@@ -59,7 +63,7 @@ function slide(wrapper, items) {
       posX1 = e.clientX;
     }
 
-    items.style.Left = `${items.offsetLeft - posX2}px`;
+    items.style.left = `${items.offsetLeft - posX2}px`;
   }
 
   function dragEnd() {
@@ -106,7 +110,7 @@ function slide(wrapper, items) {
     }
 
     if (index == slidesLength - itemToShow) {
-      item.style.left = -((slidesLength - itemToShow - 1) * slideSize) + "px";
+      items.style.left = -((slidesLength - itemToShow - 1) * slideSize) + "px";
       index = slidesLength - itemToShow - 1;
     }
 
