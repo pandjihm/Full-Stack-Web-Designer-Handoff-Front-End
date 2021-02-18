@@ -52,6 +52,29 @@
     ul.breadcrumb li:last-child a {
         @apply font-semibold;
     }
+
+    /* Slider */
+    .slider {
+        @apply flex my-4 flex-col;
+    }
+
+    .slider .thumbnail {
+        @apply w-screen order-last -mx-2 overflow-auto flex pl-4;
+    }
+
+    .slider .thumbnail .item {
+        @apply bg-gray-100 relative rounded-lg  mb-4 cursor-pointer;
+        width: 106px; height: 106px;
+    }
+
+    .slider .thumbnail .item:after {
+        content: "";
+        @apply transition duration-200 absolute inset-0 bg-black-0 bg-opacity-0 border-2 border-black-0 border-opacity-0 rounded-lg;
+    }
+
+    .slider .thumbnal .item.selected:after {
+        @apply bg-opacity-25 border-opacity-100;
+    }
 }
 
 @screen md {
@@ -70,6 +93,19 @@
 
     .card:hover .card-shadow {
         @apply shadow-lg;
+    }
+
+    .slider {
+        @apply flex-row;
+    }
+
+    .slider .thumbnail {
+        @apply w-auto order-first block overflow-visible pl-0;
+    }
+
+    .slider .preview {
+        height: 609px;
+        width: 560px;
     }
 }
 
