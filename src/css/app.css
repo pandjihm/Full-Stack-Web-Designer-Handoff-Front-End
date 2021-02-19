@@ -75,6 +75,11 @@
     .slider .thumbnal .item.selected:after {
         @apply bg-opacity-25 border-opacity-100;
     }
+
+    .slider .preview {
+        @apply mb-4 px-4;
+        height: 320px;
+    }
 }
 
 @screen md {
