@@ -17,6 +17,17 @@ if (shoppingCart) {
             shoppingCart.querySelector(`div[data-row='${id}']`).remove();
 
             const CART = localStorage.getItem("cart") && JSON.parse(localStorage.getItem("cart"));
+
+            const found = CART.indexof(id);
+            if(found > -1) {
+                CART.splice(found, 1);
+                localStorage.setItem("cart", JSON.stringify(CART));
+            }
+
+            if(CART.length === 0) {
+                removeClass(headerCart, "cart-filled");
+                removeClass(document.getElementById("cart-empty"), "hidden");
+            }
         });
     }
 }
