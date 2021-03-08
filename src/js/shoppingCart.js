@@ -1,4 +1,4 @@
-import { addClass, removeClass } from "./utils-class.js";
+import { removeClass } from "./utils-class.js";
 
 const cart = ["1", "2", "3"];
 localStorage.setItem("cart", JSON.stringify(cart));
