@@ -4,7 +4,7 @@ const menuTogglerId = document.getElementById("menu-toggler");
 menuTogglerId.addEventListener("click", function () {
     const menuId = document.getElementById("menu");
     if (menuId.className.indexOf("opacity-0") > -1) {
-        addClass(menuTogglerId, "fixed top-0 right-0");
+        addClass(menuTogglerId, "fixed top-8 right-8");
         removeClass(menuTogglerId, "relative");
         addClass(menuId, "opacity-100 z-30");
         removeClass(menuId, "opacity-0 invisible");
